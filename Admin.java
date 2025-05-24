@@ -37,7 +37,7 @@ public class Admin implements Utente{
     }
 
 
-    private void visualizzaAttivita(){
+    public void visualizzaAttivita(){
         System.out.println("Da definire");
     }
 
