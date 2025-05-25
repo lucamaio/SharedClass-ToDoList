@@ -3,19 +3,15 @@ package Shared;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Employee implements Utente{
+public class Employee extends Utente{
     
-    private int id, IdCompany;
-    private String nome,cognome,email;
+    private int idCompany;
     private List<Attivita> listaAttività = new ArrayList<>();
 
     // Constructor
     public Employee(int id,String nome,String cognome,String email,int IdCompany) {
-        setId(id);
-        setNome(nome);
-        setCognome(cognome);
-        setEmail(email);
-        setIdCompany(IdCompany);
+       super(id, nome, cognome, email); 
+        setIdCompany(idCompany);
     }
    
 
@@ -97,10 +93,12 @@ public class Employee implements Utente{
 	
     // getRuolo
 
+    @Override
     public String getRuolo(){
         return "user";
     }
-
+    
+    @Override
     public String getInfo(){
         String info=null;
         info="Username: "+cognome+" "+nome+" Ruolo: "+getRuolo()+"\n";
