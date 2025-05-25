@@ -3,28 +3,31 @@ package Shared;
 public class Admin implements Utente{
 
     private int id;
-    private String ursername;
+    private String nome,cognome,email;
 
-    public Admin(String username){
-        this.setId();
-        this.setUsername(username);
+    public Admin(int id,String nome,String cognome,String email){
+        this.setId(id);
+        this.setNome(nome);
+        this.setCognome(cognome);
+        this.setEmail(email);
     }
     
-    private void setId(){
-        this.id=1;
+    private void setNome(String nome) {
+		this.nome=nome;
+		
+	}
+     public String getNome() {
+    	 return nome;
+     }
+
+	private void setId(int id){
+        this.id=id;
     }
 
     public int getId(){
         return id;
     }
 
-    private void setUsername(String usrname){
-        this.ursername=usrname;
-    }
-
-    public String getUsername(){
-        return ursername;
-    }
 
     public String getRuolo(){
         return "admin";
@@ -32,7 +35,7 @@ public class Admin implements Utente{
 
     public String getInfo(){
         String info;
-        info="Username: "+ursername+"\n";
+        info="Username: "+cognome+" "+nome+"\n";
         return info;
     }
 
@@ -41,4 +44,19 @@ public class Admin implements Utente{
         System.out.println("Da definire");
     }
 
+	public String getEmail() {
+		return email;
+	}
+
+	private void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getCognome() {
+		return cognome;
+	}
+
+	private void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
 }

@@ -2,13 +2,16 @@ package Shared;
 import java.time.LocalDate; 
 
 public class Manager implements Utente {
-    private int id;
-    private String username;
-
+    private int id,id_company;
+    private String cognome,nome,email;
+    
     // costruttore
-    public Manager(String username) {
-        setId();
-        setUsername(username);
+    public Manager(int id,String nome,String cognome,String email,int id_company) {
+        setId(id);
+        setNome(nome);
+        setCognome(cognome);
+        setEmail(email);
+        setIdCompany(id_company);
     }
     
 
@@ -17,21 +20,10 @@ public class Manager implements Utente {
         return id;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
     // metodi Set
-    private void setId(){
-        this.id=0;
-    }
-
+  
     private void setId(int id) {
         this.id = id;
-    }
-
-    private void setUsername(String username) {
-        this.username = username;
     }
 
     // metodo getRuolo
@@ -43,7 +35,7 @@ public class Manager implements Utente {
     public void assegnaAttivita(String titolo, String descrizione, LocalDate data_scadenza, Employee utente, TipoPriorita priorita){
         Attivita newAttivita= new Attivita(titolo, descrizione,data_scadenza, this, utente, priorita);
         utente.aggiungiAttività(newAttivita);
-        System.out.println("Attività assegnata a " + utente.getUsername());
+        System.out.println("Attività assegnata a " + utente.getCognome()+" "+utente.getNome());
     }
     public void visualizzaAttivita(){
         System.out.println("Da definire");
@@ -51,7 +43,46 @@ public class Manager implements Utente {
 
     public String getInfo(){
         String info = null;
-        info="Manager: "+getUsername()+"\n";
+        info="Manager: "+getCognome()+" "+getNome()+"\n";
         return info;
     }
+
+
+	public int getIdCompany() {
+		return id_company;
+	}
+
+
+	private void setIdCompany(int id_company) {
+		this.id_company = id_company;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	private void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	private void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	private void setCognome(String cognome) {
+		this.cognome=cognome;
+	}
+	
+	public String getCognome() {
+		return cognome;
+	}
+
 }

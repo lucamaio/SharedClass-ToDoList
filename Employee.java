@@ -5,22 +5,19 @@ import java.util.List;
 
 public class Employee implements Utente{
     
-    private int id;
-    private String username;
+    private int id, IdCompany;
+    private String nome,cognome,email;
     private List<Attivita> listaAttività = new ArrayList<>();
 
     // Constructor
-    public Employee(String username) {
-        setId();
-        setUsername(username);
-    }
-
-   
-
-    public Employee(int id, String username){
+    public Employee(int id,String nome,String cognome,String email,int IdCompany) {
         setId(id);
-        setUsername(username);
+        setNome(nome);
+        setCognome(cognome);
+        setEmail(email);
+        setIdCompany(IdCompany);
     }
+   
 
     // Metodi get e set
 
@@ -28,37 +25,11 @@ public class Employee implements Utente{
         return id;
     }
 
-    private void setId() {
-        this.id = 0;
-    }
-
 
     private void setId(int id) {
         this.id = id;
     }
 
-
-
-    public String getUsername() {
-        return username;
-    }
-
-
-    private void setUsername(String username) {
-        this.username = username;
-    }
-
-    // getRuolo
-
-    public String getRuolo(){
-        return "user";
-    }
-
-    public String getInfo(){
-        String info=null;
-        info="Username: "+username+" Ruolo: "+getRuolo()+"\n";
-        return info;
-    }
 
     public void aggiungiAttività(Attivita a) {
         listaAttività.add(a);
@@ -76,4 +47,63 @@ public class Employee implements Utente{
         }
     }
 
+
+
+	public int getIdCompany() {
+		return IdCompany;
+	}
+
+
+
+	private void setIdCompany(int idCompany) {
+		IdCompany = idCompany;
+	}
+
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+
+	private void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	private void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
+	public String getCognome() {
+		return cognome;
+	}
+
+
+
+	private void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+	
+    // getRuolo
+
+    public String getRuolo(){
+        return "user";
+    }
+
+    public String getInfo(){
+        String info=null;
+        info="Username: "+cognome+" "+nome+" Ruolo: "+getRuolo()+"\n";
+        return info;
+    }
 }
