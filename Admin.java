@@ -19,4 +19,7 @@ public class Admin extends Utente{
     public void visualizzaAttivita(){
         System.out.println("Da definire");
     }
+    public int getIdCompany() {
+    	return -1;
+    }
 }

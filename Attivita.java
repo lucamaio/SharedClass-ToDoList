@@ -1,36 +1,65 @@
 package Shared;
+import java.io.Serializable;
 import java.time.LocalDate;         // Importo le classi che mi consentono di operare sulle date
 import java.time.LocalDateTime;
 
-public class Attivita {
+public class Attivita implements Serializable {
 
-    // Dichiarazione variabili della classe
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	// Dichiarazione variabili della classe
     private String titolo, descrizione;
     private int id;
-    private LocalDate dataScadenza;
+    private String dataScadenza;
     private LocalDateTime dataCreazione;
     private StatoAttivita stato;
     private TipoPriorita priorita;
 
-    private Manager maneger;
-    private Employee user;
+    //private Manager maneger;
+    //private Employee user;
+    
+    private int idManager, idEmployee;
 
     // Costruttori
+    
+    public Attivita(int id,String titolo, String descrizione,String scadenza, int idManager, int idEmployee) {
+    	setId(id);
+    	setTitolo(titolo);
+    	setDescrizione(descrizione);
+    	setDataScadenza(scadenza);
+    	setTipoPriorita();
+    	setStato();
+    	setDataCreazione();	
+    	setIdManager(idManager);
+    	setIdEmployee(idEmployee);
+    }
+    
+    public Attivita(int id,String titolo, String descrizione,String scadenza, int idManager, int idEmployee,TipoPriorita priorita) {
+    	this(id,titolo,descrizione,scadenza,idManager,idEmployee);
+    	setTipoPriorita(priorita);
+    }
+    
+    public Attivita(int id,String titolo, String descrizione,String scadenza, int idManager, int idEmployee,TipoPriorita priorita, StatoAttivita stato) {
+    	this(id,titolo,descrizione,scadenza,idManager,idEmployee,priorita);
+    	setStato(stato);
+    }
 
-    public Attivita(String titolo, String descrizione,LocalDate dataScadenza, Manager maneger, Employee user) {
+    /*public Attivita(String titolo, String descrizione,LocalDate dataScadenza2, Manager maneger2, Employee user2) {
         setId();
         setDataCreazione();
         setTitolo(titolo);
         setDescrizione(descrizione);
-        setDataScadenza(dataScadenza);
-        setManeger(maneger);
-        setUser(user);
+        c(dataScadenza2);
+        setManeger(maneger2);
+        setUser(user2);
         setTipoPriorita();
         this.stato.valueOf("DA FARE");
     }
 
-    public Attivita(String titolo, String descrizione,LocalDate dataScadenza, Manager maneger, Employee user, TipoPriorita priorita) {
-        this(titolo,descrizione,dataScadenza,maneger,user);
+    public Attivita(String titolo, String descrizione,String scadenza, int idManager, int idEmployee, TipoPriorita priorita) {
+        this(titolo,descrizione,scadenza,idManager,idEmployee);
         setTipoPriorita(priorita);
     }
 
@@ -39,14 +68,14 @@ public class Attivita {
         setId(id);
     }
 
-    public Attivita(int id, String titolo, String descrizione, LocalDate dataScadenza, Manager maneger, Employee user, TipoPriorita priorita) {
-        this(titolo,descrizione,dataScadenza,maneger,user,priorita);
+    public Attivita(int id, String titolo, String descrizione, String scadenza, int idManager, int idEmployee, TipoPriorita priorita) {
+        this(titolo,descrizione,scadenza,idManager,idEmployee,priorita);
         setId(id);
-    }
+    }*/
 
     // Metodi Get e set
-     private void setTipoPriorita() {
-        this.priorita=this.priorita.valueOf("NESSUNA");
+    private void setTipoPriorita() {
+        this.priorita=TipoPriorita.valueOf("NESSUNA");
     }
 
     private void setTipoPriorita(TipoPriorita priorita) {
@@ -57,7 +86,7 @@ public class Attivita {
         return priorita;
     }
 
-    private String getTitolo() {
+    public String getTitolo() {
         return titolo;
     }
 
@@ -65,7 +94,7 @@ public class Attivita {
         this.titolo = titolo;
     }
 
-    private String getDescrizione() {
+    public String getDescrizione() {
         return descrizione;
     }
 
@@ -73,12 +102,8 @@ public class Attivita {
         this.descrizione = descrizione;
     }
 
-    private int getId() {
+    public int getId() {
         return id;
-    }
-
-    private void setId(){
-        this.id=1;
     }
 
     private void setId(int id) {
@@ -86,42 +111,29 @@ public class Attivita {
     }
 
 
-    private LocalDate getDataScadenza() {
+    public String getDataScadenza() {
         return dataScadenza;
     }
 
-    private void setDataScadenza(LocalDate dataScadenza) {
-        this.dataScadenza = dataScadenza;
+    private void setDataScadenza(String scadenza) {
+        this.dataScadenza = scadenza;
     }
 
-    private LocalDateTime getDataCreazione() {
+    public LocalDateTime getDataCreazione() {
         return dataCreazione;
     }
 
     private void setDataCreazione() {
         this.dataCreazione = LocalDateTime.now();
     }
-    
-    private void setManeger(Manager maneger){
-        this.maneger=maneger;
-    }
-
-    public Manager getManeger(){
-        return maneger;
-    }
-
-    private void setUser(Employee user){
-        this.user=user;
-    }
-
-    public Employee getUser(){
-        return user;
-    }
-
-    public void setStato(StatoAttivita stato){
+        
+    private void setStato(StatoAttivita stato){
         this.stato=stato;
     }
     
+    private void setStato() {
+    	 this.stato.valueOf("DA_FARE");
+    }
     public StatoAttivita getStato(){
         return stato;
     }
@@ -133,7 +145,22 @@ public class Attivita {
         info+="Data Scadenza: "+this.getDataScadenza()+"\n";
         info+="Stato: "+getStato()+"\n";
         info+="Priorità: "+getPriorita()+"\n";
-        info+=maneger.getInfo();
         return info;
     }
+
+    public int getIdEmployee() {
+		return idEmployee;
+	}
+
+	private void setIdEmployee(int idEmployee) {
+		this.idEmployee = idEmployee;
+	}
+
+	public int getIdManager() {
+		return idManager;
+	}
+
+	private void setIdManager(int idManager) {
+		this.idManager = idManager;
+	}
 }

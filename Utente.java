@@ -1,14 +1,25 @@
 package Shared;
 
-public abstract class Utente {
+import java.io.Serializable;
+
+public abstract class Utente implements Serializable{
+
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
     protected int id;
     protected String cognome, nome, email;
-
-    public Utente(int id, String nome, String cognome, String email) {
-        setId(id);
+    
+    public Utente(int id,String nome, String cognome) {
+    	setId(id);
         setNome(nome);
         setCognome(cognome);
+    }
+
+    public Utente(int id, String nome, String cognome, String email) {
+        this(id,nome,cognome);
         setEmail(email);
     }
 
@@ -40,11 +51,13 @@ public abstract class Utente {
         return email;
     }
 
-    private void setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
     public abstract String getRuolo();
 
     public abstract String getInfo();
+    
+    //public abstract int getIdCompany();
 }

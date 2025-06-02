@@ -1,10 +1,15 @@
 package Shared;
 
 import java.io.Serializable;
+//import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Risposta implements Serializable {
-    private String status; // "OK" o "ERRORE"
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String status; // "OK" o "ERRORE"
     private Object messaggio;
     private HashMap<String, Object> parametri;
 
@@ -29,4 +34,25 @@ public class Risposta implements Serializable {
     public Object getParametro(String chiave) {
         return parametri.get(chiave);
     }
+    
+    // Qesta funzione restituisce se la chiave passata esiste
+    public boolean verificaKey(String chiave) {
+    	return parametri.containsKey(chiave);
+    }
+    
+    public void stampaKeys() {
+    	 for (String chiave : parametri.keySet()) {
+             System.out.println(chiave);
+         }
+    }
+    
+    /*public void stampaDipendenti() {
+    	ArrayList<Employee> employeeList = (ArrayList<Employee>) this.getParametro("dipendenti");
+		String[] str = new String[employeeList.size() + 1];
+        str[0] = "*";
+		System.out.println("Lista dipendenti: " + employeeList);
+    	for(Employee dipendente: employeeList) {
+    	    System.out.println(dipendente); // override toString per più dettagli
+    	}
+    }*/
 }

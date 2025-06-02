@@ -1,10 +1,15 @@
 package Shared;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Richiesta implements Serializable {
-    private String tipo;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String tipo;
     private HashMap<String, Object> parametri;
 
     public Richiesta(String tipo) {
@@ -22,5 +27,9 @@ public class Richiesta implements Serializable {
 
     public Object getParametro(String chiave) {
         return parametri.get(chiave);
+    }
+    
+    public boolean verificaKey(String chiave) {
+    	return parametri.containsKey(chiave);
     }
 }
