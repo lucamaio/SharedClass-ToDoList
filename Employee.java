@@ -48,12 +48,6 @@ public class Employee extends Utente implements Serializable{
      */
 
 
-	public int getIdDepartment() {
-		return idDepartment;
-	}
-
-
-
 	private void setIdDepartment (int idDepartment) {
 		this.idDepartment = idDepartment;
 	}
@@ -71,4 +65,9 @@ public class Employee extends Utente implements Serializable{
         info=cognome+" "+nome;
         return info;
     }
+	@Override
+	public int getIdDepartment() {
+		// TODO Auto-generated method stub
+		return idDepartment;
+	}
 }
