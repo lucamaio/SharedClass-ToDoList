@@ -59,7 +59,5 @@ public abstract class Utente implements Serializable{
 
     public abstract String getInfo();
     
-    //public abstract int getIdCompany();
-    
     public abstract int getIdDepartment();
 }
