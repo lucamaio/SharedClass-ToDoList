@@ -9,9 +9,8 @@ public class Attivita implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	// Dichiarazione variabili della classe
-    private String titolo, descrizione;
+    private String titolo, descrizione, dataScadenza, nominativoEmplyee,departmentName;
     private int id;
-    private String dataScadenza;
     private LocalDateTime dataCreazione;
     private StatoAttivita stato;
     private TipoPriorita priorita;
@@ -20,7 +19,8 @@ public class Attivita implements Serializable {
 
     // Costruttori
     
-    public Attivita(int id,String titolo, String descrizione,String scadenza, Integer idManager, Integer idEmployee, Integer idDepartment) {
+    
+	public Attivita(int id,String titolo, String descrizione,String scadenza, Integer idManager, Integer idEmployee, Integer idDepartment) {
     	setId(id);
     	setTitolo(titolo);
     	setDescrizione(descrizione);
@@ -31,6 +31,7 @@ public class Attivita implements Serializable {
     	setIdManager(idManager);
     	setIdEmployee(idEmployee);
     	setIdDepartment(idDepartment);
+    	setNominativoEmployee();
     }
     
     public Attivita(int id,String titolo, String descrizione,String scadenza, Integer idManager, Integer idEmployee,Integer idDepartment, TipoPriorita priorita) {
@@ -47,6 +48,20 @@ public class Attivita implements Serializable {
     	this(id,titolo,descrizione,scadenza,idManager,idEmployee,idDepartment,priorita);
     	setStato(stato);
     	setDataCreazione(dataCreazione);
+    }
+    
+    
+    public Attivita(String titolo, String descrizione, String scadenza,TipoPriorita priorita, Integer idManager,String nominativoEmplyee, String department_name) {
+    	setId();
+    	setDataCreazione();	
+    	setTitolo(titolo);
+    	setDescrizione(descrizione);
+    	setDataScadenza(scadenza);
+    	setTipoPriorita(priorita);
+    	setStato();
+    	setIdManager(idManager);
+    	setNominativoEmployee(nominativoEmplyee);
+    	setDepartmentName(department_name);
     }
     
     // Metodi Get e set
@@ -82,6 +97,10 @@ public class Attivita implements Serializable {
         return id;
     }
 
+    private void setId() {
+		this.id=-1;		
+	}
+    
     private void setId(int id) {
         this.id = id;
     }
@@ -143,6 +162,22 @@ public class Attivita implements Serializable {
 		this.idDepartment=idDepartment;
 	}
 	
+	private void setNominativoEmployee() {
+		this.nominativoEmplyee=null;
+	}
+	private void setNominativoEmployee(String nominativo) {
+		this.nominativoEmplyee=nominativo;
+	}
+	public String getNominativoEmployee() {
+		return nominativoEmplyee;
+	}
+	
+	private void setDepartmentName(String department_name) {
+		this.departmentName=department_name;
+	}
+	public String getdepartmentName() {
+		return departmentName;
+	}
 	 public String getInfo(){
 	        String info="Attività numero: "+this.getId()+" Data Creazione: "+this.getDataCreazione()+"\n";
 	        info+="Titolo: "+this.getTitolo()+"\n";

@@ -1,9 +1,15 @@
 package Shared;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Department {
+public class Department implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private int id,idCompany,idManager;
 	private String nome,descrizione;
 	private ArrayList<Employee> dipendenti;
