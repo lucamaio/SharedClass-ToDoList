@@ -31,4 +31,10 @@ public class Director extends Utente {
     	return str;
     }
 
+	@Override
+	public int getIdDepartment() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
