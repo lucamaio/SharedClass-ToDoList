@@ -1,24 +1,28 @@
 package Shared;
 
-public class Director extends Utente {
+import java.io.Serializable;
+
+public class Director extends Utente implements Serializable{
 	
-	private int idCompany;
+	private static final long serialVersionUID = 1L;
 	
-	public Director (int id, String nome,String cognome, int id_company) {
+	private Integer idCompany;
+	
+	public Director (Integer id, String nome,String cognome, Integer id_company) {
 		super(id,nome,cognome);
 		setIdCompany(id_company);
 	}
 	
-	public Director(int id, String nome,String cognome,String email, int id_company) {
+	public Director(Integer id, String nome,String cognome,String email, Integer id_company) {
 		this(id,nome,cognome,id_company);
 		setEmail(email);
 	}
 	
-	private void setIdCompany(int idCompany) {
+	private void setIdCompany(Integer idCompany) {
 		this.idCompany=idCompany;
 	}
 	
-	 public int getIdCompany() {
+	 public Integer getIdCompany() {
 	    	return idCompany;
 	    }
 	

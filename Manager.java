@@ -49,6 +49,12 @@ public class Manager extends Utente implements Serializable {
         String info = getCognome()+" "+getNome();
         return info;
     }
+
+	@Override
+	public int getIdDepartment() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
     
   
     // Metodo assegna attivita

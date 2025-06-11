@@ -1,8 +1,12 @@
 package Shared;
 
-public class Admin extends Utente{
+import java.io.Serializable;
 
-    public Admin(int id,String nome,String cognome,String email){
+public class Admin extends Utente implements Serializable{
+
+   
+	private static final long serialVersionUID = 1L;
+	public Admin(int id,String nome,String cognome,String email){
         super(id, nome, cognome, email); 
     }
 
@@ -22,4 +26,10 @@ public class Admin extends Utente{
     public int getIdCompany() {
     	return -1;
     }
+
+	@Override
+	public int getIdDepartment() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
