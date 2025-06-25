@@ -1,33 +1,21 @@
 package Shared;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Random; // Classe neccessaria per generare una password casuale
 
 public class Department implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	
 	private int id,idCompany,idManager;
 	private String nome,descrizione, password;
-	private ArrayList<Employee> dipendenti;
-	private LocalDateTime dataCreazione;
 	
-	
-	/**
-	 * Costruttore
-	 * */
+	// Costruttori
 	
 	public Department(String nome,String descrizione,int idCompany, int idManager) {
 		id=-1;
 		setNome(nome);
 		setDescrizione(descrizione);
 		setIdCompany(idCompany);
-		dipendenti=new ArrayList<Employee>();
 		setIdManager(idManager);
 		setPassword();
 	}
@@ -37,7 +25,6 @@ public class Department implements Serializable {
 		setNome(nome);
 		setDescrizione(descrizione);
 		setIdCompany(idCompany);
-		dipendenti=new ArrayList<Employee>();
 		setIdManager(idManager);
 		setPassword();
 	}
@@ -47,10 +34,6 @@ public class Department implements Serializable {
 		setPassword(password);
 	}
 	
-	public Department(int id,String nome,String descrizione,LocalDateTime dataCreazione,int idCompany, int idManager) {
-		this(id,nome,descrizione,idCompany,idManager);
-		setDataCreazione(dataCreazione);
-	}
 	// Metodi set e get
 	
 	public int getId() {
@@ -61,28 +44,8 @@ public class Department implements Serializable {
 		this.id = id;
 	}
 
-	public int getIdManager() {
-		return idManager;
-	}
-
-	public void setIdManager(int idManager) {
-		this.idManager = idManager;
-	}
-
-	public int getIdCompany() {
-		return idCompany;
-	}
-
-	public void setIdCompany(int idCompany) {
-		this.idCompany = idCompany;
-	}
-
 	public String getDescrizione() {
 		return descrizione;
-	}
-
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
 	}
 
 	public String getNome() {
@@ -92,25 +55,12 @@ public class Department implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	private LocalDateTime getDataCreazione() {
-		return dataCreazione;
+
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
 	}
 
-	private void setDataCreazione(LocalDateTime dataCreazione) {
-		this.dataCreazione = dataCreazione;
-	}
-
-	public ArrayList<Employee> getDipendenti() {
-		return dipendenti;
-	}
-
-	public void setDipendenti(ArrayList<Employee> dipendenti) {
-		this.dipendenti = dipendenti;
-	}
-	
-	public void aggiungiEmployee(Employee employee) {
-		dipendenti.add(employee);
-	}
+	// Metodo per generare una password
 	
 	private String generaPassword(int lunghezza, Random random) {
 		 StringBuilder sb = new StringBuilder(lunghezza);
@@ -129,6 +79,7 @@ public class Department implements Serializable {
 	        return sb.toString();
 	}
 	
+	// Metodi set e get Password
 	private void setPassword() {
 		Random random = new Random();
 		this.password=generaPassword(8,random);
@@ -140,12 +91,30 @@ public class Department implements Serializable {
 	public String getPassword() {
 		return password;
 	}
-	
+
+
+	// Metodi Set e get IDManager e IDCompany
+	public int getIdManager() {
+		return idManager;
+	}
+
+	public void setIdManager(int idManager) {
+		this.idManager = idManager;
+	}
+
+	public int getIdCompany() {
+		return idCompany;
+	}
+
+	public void setIdCompany(int idCompany) {
+		this.idCompany = idCompany;
+	}
+
+	// Metodo Get info
+
 	public String getInfo() {
 		String info="Titolo: "+getNome()+"\nDescrizione: "+getDescrizione()+"\n";
 		return info;
 	}
-	
-
 }
 	

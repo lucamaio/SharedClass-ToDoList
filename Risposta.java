@@ -46,13 +46,4 @@ public class Risposta implements Serializable {
          }
     }
     
-    /*public void stampaDipendenti() {
-    	ArrayList<Employee> employeeList = (ArrayList<Employee>) this.getParametro("dipendenti");
-		String[] str = new String[employeeList.size() + 1];
-        str[0] = "*";
-		System.out.println("Lista dipendenti: " + employeeList);
-    	for(Employee dipendente: employeeList) {
-    	    System.out.println(dipendente); // override toString per più dettagli
-    	}
-    }*/
 }

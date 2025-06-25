@@ -9,7 +9,6 @@ public class Company implements Serializable {
 	private String nome, descrizione, indirizzo, email, telefono;
 	private Integer id;
 	
-	private ArrayList<Department> listaDipartimenti;
 	
 	// Costruttore
 	
@@ -20,7 +19,6 @@ public class Company implements Serializable {
 		setIndirizzo(indirizzo);
 		setEmail(email);
 		setTelefono(telefono);
-		listaDipartimenti=new ArrayList<>();
 	}
 	
 	
@@ -77,18 +75,7 @@ public class Company implements Serializable {
 		this.telefono = telefono;
 	}
 
-	public ArrayList<Department> getListaDipartimenti() {
-		return listaDipartimenti;
-	}
 
-	public void setListaDipartimenti(ArrayList<Department> listaDipartimenti) {
-		this.listaDipartimenti = listaDipartimenti;
-	}
-	
-	public void aggiungiDipartimento(Department dipartimento) {
-		listaDipartimenti.add(dipartimento);
-	}
-	
 	// Metodo getInfo()
 	
 	public String getInfo() {

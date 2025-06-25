@@ -15,7 +15,6 @@ public class Manager extends Utente implements Serializable {
     public Manager(int id, String nome, String cognome) {
     	super(id,nome,cognome);
     	listaDipartimenti=new ArrayList<Department>();
-        super.setIdDepartment=-1;
     }
     
     public Manager(int id,String nome,String cognome,String email) {
