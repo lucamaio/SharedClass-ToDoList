@@ -15,6 +15,7 @@ public class Manager extends Utente implements Serializable {
     public Manager(int id, String nome, String cognome) {
     	super(id,nome,cognome);
     	listaDipartimenti=new ArrayList<Department>();
+        super.setIdDepartment=-1;
     }
     
     public Manager(int id,String nome,String cognome,String email) {
@@ -25,7 +26,8 @@ public class Manager extends Utente implements Serializable {
         super(id, nome, cognome, email); 
         setListaDipartimenti(listaDipartimenti);
     }
-    // Metodi set e get
+
+    // Metodi set e get Lista Dipartimenti
     
     public void setListaDipartimenti(ArrayList<Department> listaDipartimenti) {
     	this.listaDipartimenti=listaDipartimenti;
@@ -49,24 +51,5 @@ public class Manager extends Utente implements Serializable {
         String info = getCognome()+" "+getNome();
         return info;
     }
-
-	@Override
-	public int getIdDepartment() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-    
-  
-    // Metodo assegna attivita
-    /*
-    public void assegnaAttivita(String titolo, String descrizione, LocalDate data_scadenza, Employee utente, TipoPriorita priorita){
-        Attivita newAttivita= new Attivita(titolo, descrizione,data_scadenza, this, utente, priorita);
-        utente.aggiungiAttività(newAttivita);
-        System.out.println("Attività assegnata a " + utente.getCognome()+" "+utente.getNome());
-    }
-    
-    public void visualizzaAttivita(){
-        System.out.println("Da definire");
-    }*/
 
 }

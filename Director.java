@@ -8,6 +8,8 @@ public class Director extends Utente implements Serializable{
 	
 	private Integer idCompany;
 	
+	// Costruttori
+
 	public Director (Integer id, String nome,String cognome, Integer id_company) {
 		super(id,nome,cognome);
 		setIdCompany(id_company);
@@ -17,6 +19,8 @@ public class Director extends Utente implements Serializable{
 		this(id,nome,cognome,id_company);
 		setEmail(email);
 	}
+
+	// Metodi set e get
 	
 	private void setIdCompany(Integer idCompany) {
 		this.idCompany=idCompany;
@@ -26,19 +30,16 @@ public class Director extends Utente implements Serializable{
 	    	return idCompany;
 	    }
 	
+	// Metodo getRuolo
 	public String getRuolo() {
 		return "director";
 	}
+
+	// Metodo get Info
 
     public String getInfo() {
     	String str=super.getCognome()+" "+super.getNome();
     	return str;
     }
-
-	@Override
-	public int getIdDepartment() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	
 }

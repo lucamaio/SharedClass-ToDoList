@@ -22,6 +22,16 @@ public class Department implements Serializable {
 	 * Costruttore
 	 * */
 	
+	public Department(String nome,String descrizione,int idCompany, int idManager) {
+		id=-1;
+		setNome(nome);
+		setDescrizione(descrizione);
+		setIdCompany(idCompany);
+		dipendenti=new ArrayList<Employee>();
+		setIdManager(idManager);
+		setPassword();
+	}
+	
 	public Department(int id,String nome,String descrizione,int idCompany, int idManager) {
 		setId(id);
 		setNome(nome);
