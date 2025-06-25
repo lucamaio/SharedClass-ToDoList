@@ -37,7 +37,7 @@ public abstract class Utente implements Serializable{
         return id;
     }
 
-    private void setId(int id) {
+    protected void setId(int id) {
         this.id = id;
     }
 
@@ -45,7 +45,7 @@ public abstract class Utente implements Serializable{
         return cognome;
     }
 
-    private void setCognome(String cognome) {
+    protected void setCognome(String cognome) {
         this.cognome = cognome;
     }
 
@@ -53,7 +53,7 @@ public abstract class Utente implements Serializable{
         return nome;
     }
 
-    private void setNome(String nome) {
+    protected void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -61,7 +61,7 @@ public abstract class Utente implements Serializable{
         return email;
     }
 
-    private void setEmail(String email) {
+    protected void setEmail(String email) {
         this.email = email;
     }
 
@@ -69,7 +69,7 @@ public abstract class Utente implements Serializable{
         return idDepartment;
     }
 
-    private void setIdDepartment(int idDepartment){
+    protected void setIdDepartment(int idDepartment){
         this.idDepartment=idDepartment;
     }
 
